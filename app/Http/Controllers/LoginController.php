@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\PostController;
 
 class LoginController extends Controller
 {
@@ -25,7 +27,10 @@ class LoginController extends Controller
             return back()->with('mensaje', 'Credenciales Incorrectas');
 
          }
-          return redirect()->route('posts.index');
+         
+         //return redirect()->route('posts.index'); es la original
+         return redirect(Auth::user()->username);
+         
 
     }
 }

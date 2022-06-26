@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Auth\Events\Validated;
 
@@ -47,7 +48,7 @@ $this->validate($request ,[
        // otra forma de iniciar sesion
       auth()->attempt($request->only('email','password'));
 
-         return redirect()->route('posts.index');
+      return redirect(Auth::user()->username);
     }
 }
 

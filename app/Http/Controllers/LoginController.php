@@ -28,8 +28,8 @@ class LoginController extends Controller
 
          }
          
-         //return redirect()->route('posts.index'); es la original
-         return redirect(Auth::user()->username);
+         return redirect()->route('posts.index', auth()->user()->username); 
+         //return redirect(Auth::user()->username);
          
 
     }

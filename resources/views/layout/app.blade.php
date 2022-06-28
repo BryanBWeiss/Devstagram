@@ -7,6 +7,7 @@
         <title>Devstagram - @yield('titulo')</title>
         <link href="{{ asset('css/app.css')}}" rel="stylesheet">
         <script src="{{ asset('js/app.js')}}" defer></script>
+        @stack('styles')
         </head>
          <body class=" bg-gray-200">
           

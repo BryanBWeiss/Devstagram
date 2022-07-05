@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Like;
 use App\Models\Post;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Notifications\Notifiable;
@@ -47,5 +48,21 @@ class User extends Authenticatable
 
     public function posts(){
        return $this->hasMany(Post::class);
+    }
+    public function Likes(){
+        return $this->hasMany(Like::class);
+    }
+  // almacena los seguidores de usuarios
+    public function followers(){
+        return $this->belongsToMany(User::class, 'followers', 'user_id', 'follower_id');
+    }
+
+      // almacena los siguiendos
+      public function followings(){
+        return $this->belongsToMany(User::class, 'followers', 'follower_id', 'user_id');
+    }
+ // comprobamos si un suario sigue a otro
+    public function siguiendo(User $user){
+        return $this->followers->contains($user->id);
     }
 }

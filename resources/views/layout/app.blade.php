@@ -8,6 +8,7 @@
         <link href="{{ asset('css/app.css')}}" rel="stylesheet">
         <script src="{{ asset('js/app.js')}}" defer></script>
         @stack('styles')
+        @livewireStyles
         </head>
          <body class=" bg-gray-200">
           
@@ -66,6 +67,6 @@
           <footer class="mt-10 text-center p-5 text-gray-500 font-bold uppercase">
             DevStagram - Todos los derechos Reservados {{now()->year}}
           </footer>
-
+          @livewireScripts
         </body>
     </head>    
